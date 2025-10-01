@@ -1,5 +1,5 @@
 const express = require('express');
-const fetch = require('node-fetch'); // se estiver usando node-fetch@2
+const fetch = require('node-fetch'); // versão 2
 const cors = require('cors');
 
 const app = express();
@@ -19,7 +19,6 @@ app.post('/proxyCadastro', async (req, res) => {
         });
 
         const data = await response.json();
-
         res.json(data);
     } catch (err) {
         res.status(500).json({ message: err.message });
