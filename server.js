@@ -1,12 +1,12 @@
 const express = require('express');
-const fetch = require('node-fetch');
+const fetch = require('node-fetch'); // se estiver usando node-fetch@2
 const cors = require('cors');
 
 const app = express();
-const PORT = 3000; // Pode mudar
+const PORT = 3000;
 
-app.use(cors()); // Libera CORS para seu frontend
-app.use(express.json()); // Para ler JSON do frontend
+app.use(cors());
+app.use(express.json());
 
 app.post('/proxyCadastro', async (req, res) => {
     try {
@@ -20,7 +20,7 @@ app.post('/proxyCadastro', async (req, res) => {
 
         const data = await response.json();
 
-        res.json(data); // Retorna para o frontend
+        res.json(data);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
